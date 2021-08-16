@@ -6,6 +6,7 @@ output: html_notebook
 ```{r setup}
 library(tidyverse)
 library(plotly)
+library(dygraphs)
 ```
 
 
@@ -37,5 +38,11 @@ Interactive data visualization
 p <- ggplot(data = diamonds, aes(x = cut, fill = clarity)) +
             geom_bar(position = "dodge")
 ggplotly(p)
+```
+
+
+```{r}
+dygraph(nhtemp, main = "New Haven Temperatures") %>% 
+  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
 ```
 
